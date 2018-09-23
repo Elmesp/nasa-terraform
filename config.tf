@@ -15,4 +15,9 @@ resource "aws_instance" "nasa_nginx" {
       "sudo service nginx start",
     ]
   }
+
+  provisioner "file" {
+    source      = "nodeapp.conf"
+    destination = "/etc/nginx/conf.d/nodeapp.conf"
+  }
 }
