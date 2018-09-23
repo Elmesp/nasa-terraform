@@ -10,25 +10,18 @@ resource "aws_instance" "nasa_nginx" {
   key_name = "terraform"
   associate_public_ip_address = true
 
-  # provisioner "remote-exec" {
-  #   connection {
-  #     type        = "ssh"
-  #     agent       = false
-  #     user        = "ubuntu"
-  #     private_key = "${file("~/.ssh/authorized_keys")}"
-  #   }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get -y update",
+      "sudo apt-get -y install nginx",
+      "sudo service nginx start",
+    ]
+  }
 
-  #   inline = [
-  #     "sudo apt-get -y update",
-  #     "sudo apt-get -y install nginx",
-  #     "sudo service nginx start",
-  #   ]
-  # }
-
-  # provisioner "file" {
-  #   source      = "nodeapp.conf"
-  #   destination = "/etc/nginx/conf.d/nodeapp.conf"
-  # }
+  provisioner "file" {
+    source      = "nodeapp.conf"
+    destination = "/etc/nginx/conf.d/nodeapp.conf"
+  }
 }
 
 # resource "aws_key_pair" "terraform" {
