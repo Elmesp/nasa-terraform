@@ -22,10 +22,19 @@ resource "aws_instance" "nasa_nginx" {
       "sudo apt-get -y update",
       "sudo apt-get -y install nginx",
       "sudo service nginx start",
+      "sudo systemctl start nginx",
+      "sudo systemctl enable nginx"
     ]
   }
 
   provisioner "file" {
+    connection {
+      type     = "ssh"
+      user     = "ubuntu"
+      private_key = "${file("/jenkins/terraform.pem")}"
+      agent = false
+    }
+
     source      = "nodeapp.conf"
     destination = "/etc/nginx/conf.d/nodeapp.conf"
   }
