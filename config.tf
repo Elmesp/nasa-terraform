@@ -1,12 +1,10 @@
-variable "access_key" {}
-variable "secret_key" {}
 variable "region" {
   default = "us-east-1"
 }
 
 provider "aws" {
-  access_key = "${var.access_key}"
-  secret_key = "${var.secret_key}"
+  access_key = "AKIAJT45VR75DFUHR2VA"
+  secret_key = "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"
   region     = "${var.region}"
 }
 
