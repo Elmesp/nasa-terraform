@@ -8,7 +8,7 @@ resource "aws_instance" "nasa_nginx" {
   ami           = "ami-0ac019f4fcb7cb7e6"
   instance_type = "t2.micro"
   key_name = "terraform"
-  associate_public_ip_address=true
+  associate_public_ip_address = true
 
   # provisioner "remote-exec" {
   #   connection {
@@ -31,8 +31,7 @@ resource "aws_instance" "nasa_nginx" {
   # }
 }
 
-resource "aws_key_pair" "terraform_ec2_key" {
-  key_name = "terraform_ec2_key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfMCqXraSPxvhL2LIGluGC7Y8UsV1PuMcH1L3u7zdHnMQl0CzAt+1yjqdcbu/OVDBMtoPfimTp5BxawuodDdEEewNSOonL517oSQqwdaunkoy6bioITMvj6iiG4ab3thy0BaT0MWb7Thbf8KDHPIxLm0fdgJHSOhXRb6TEToNCi+zm9BVYcKiYK6HBfnh4wp9CI2pyhZ1OEhly/8K+SjQzg4j8TR/5EH7JEiCl64Y5gXwNxLDyjHHiGMqk2sv6EfxRncroAYVhonG/N63Fkd1BTOIWLNovgId/ehw/+ejh2LHi5Y7+whgPzVqaFfzmhXW/RSRMaAmxeAoLZWDUpeGx kayanazimov@kayanazimov.local"
-//  public_key = "${file("terraform_ec2_key.pub")}"
+resource "aws_key_pair" "terraform" {
+  key_name = "terraform"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfMCqXraSPxvhL2LIGluGC7Y8UsV1PuMcH1L3u7zdHnMQl0CzAt+1yjqdcbu/OVDBMtoPfimTp5BxawuodDdEEewNSOonL517oSQqwdaunkoy6bioITMvj6iiG4ab3thy0BaT0MWb7Thbf8KDHPIxLm0fdgJHSOhXRb6TEToNCi+zm9BVYcKiYK6HBfnh4wp9CI2pyhZ1OEhly/8K+SjQzg4j8TR/5EH7JEiCl64Y5gXwNxLDyjHHiGMqk2sv6EfxRncroAYVhonG/N63Fkd1BTOIWLNovgId/ehw/+ejh2LHi5Y7+whgPzVqaFfzmhXW/RSRMaAmxeAoLZWDUpeGx elmsep@elmsep.local"
 }
