@@ -3,8 +3,8 @@ variable "region" {
 }
 
 provider "aws" {
-  access_key = "AKIAJT45VR75DFUHR2VA"
-  secret_key = "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"
+  access_key = "AKIAITBF2BAKIECD577A"
+  secret_key = "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"
   region     = "${var.region}"
 }
 
