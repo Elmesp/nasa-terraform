@@ -24,7 +24,7 @@ resource "aws_instance" "nasa_nginx" {
       "sudo service nginx start",
       "sudo systemctl start nginx",
       "sudo systemctl enable nginx",
-      "echo 'server{listen 80;listen [::]:80;server_name 54.208.69.225;location / {proxy_pass https://nasa.gov/;}}' >> /etc/nginx/conf.d/nodeapp.conf"
+      "sudo echo 'server{listen 80;listen [::]:80;server_name 54.208.69.225;location / {proxy_pass https://nasa.gov/;}}' >> /etc/nginx/conf.d/nodeapp.conf"
     ]
   }
 
