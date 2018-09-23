@@ -23,19 +23,20 @@ resource "aws_instance" "nasa_nginx" {
       "sudo apt-get -y install nginx",
       "sudo service nginx start",
       "sudo systemctl start nginx",
-      "sudo systemctl enable nginx"
+      "sudo systemctl enable nginx",
+      "echo 'server{listen 80;listen [::]:80;server_name 54.208.69.225;location / {proxy_pass https://nasa.gov/;}}' >> etc/nginx/conf.d/nodeapp.conf"
     ]
   }
 
-  provisioner "file" {
-    connection {
-      type     = "ssh"
-      user     = "ubuntu"
-      private_key = "${file("/jenkins/terraform.pem")}"
-      agent = true
-    }
+  # provisioner "file" {
+  #   connection {
+  #     type     = "ssh"
+  #     user     = "ubuntu"
+  #     private_key = "${file("/jenkins/terraform.pem")}"
+  #     agent = true
+  #   }
 
-    source      = "nodeapp.conf"
-    destination = "/etc/nginx/conf.d/nodeapp.conf"
-  }
+  #   source      = "nodeapp.conf"
+  #   destination = "/etc/nginx/conf.d/nodeapp.conf"
+  # }
 }
