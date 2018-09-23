@@ -7,6 +7,7 @@ provider "aws" {
 resource "aws_instance" "nasa_nginx" {
   ami           = "ami-0ac019f4fcb7cb7e6"
   instance_type = "t2.micro"
+  key_name = "terraform"
 
   provisioner "remote-exec" {
     inline = [
