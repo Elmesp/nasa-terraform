@@ -25,17 +25,17 @@ resource "aws_instance" "nasa_nginx" {
       "sudo systemctl start nginx",
       "sudo systemctl enable nginx"
     ]
-
-    provisioner "file" {
-      connection {
-        type     = "ssh"
-        user     = "ubuntu"
-        private_key = "${file("/jenkins/terraform.pem")}"
-        agent = false
-      }
-
-      source      = "nodeapp.conf"
-      destination = "/etc/nginx/conf.d/nodeapp.conf"
-    }
   }
+
+  # provisioner "file" {
+  #   connection {
+  #     type     = "ssh"
+  #     user     = "ubuntu"
+  #     private_key = "${file("/jenkins/terraform.pem")}"
+  #     agent = false
+  #   }
+
+  #   source      = "nodeapp.conf"
+  #   destination = "/etc/nginx/conf.d/nodeapp.conf"
+  # }
 }
