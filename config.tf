@@ -31,7 +31,7 @@ resource "aws_instance" "nasa_nginx" {
   # }
 }
 
-resource "aws_key_pair" "terraform" {
-  key_name = "terraform"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfMCqXraSPxvhL2LIGluGC7Y8UsV1PuMcH1L3u7zdHnMQl0CzAt+1yjqdcbu/OVDBMtoPfimTp5BxawuodDdEEewNSOonL517oSQqwdaunkoy6bioITMvj6iiG4ab3thy0BaT0MWb7Thbf8KDHPIxLm0fdgJHSOhXRb6TEToNCi+zm9BVYcKiYK6HBfnh4wp9CI2pyhZ1OEhly/8K+SjQzg4j8TR/5EH7JEiCl64Y5gXwNxLDyjHHiGMqk2sv6EfxRncroAYVhonG/N63Fkd1BTOIWLNovgId/ehw/+ejh2LHi5Y7+whgPzVqaFfzmhXW/RSRMaAmxeAoLZWDUpeGx elmsep@elmsep.local"
-}
+# resource "aws_key_pair" "terraform" {
+#   key_name = "terraform"
+#   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfMCqXraSPxvhL2LIGluGC7Y8UsV1PuMcH1L3u7zdHnMQl0CzAt+1yjqdcbu/OVDBMtoPfimTp5BxawuodDdEEewNSOonL517oSQqwdaunkoy6bioITMvj6iiG4ab3thy0BaT0MWb7Thbf8KDHPIxLm0fdgJHSOhXRb6TEToNCi+zm9BVYcKiYK6HBfnh4wp9CI2pyhZ1OEhly/8K+SjQzg4j8TR/5EH7JEiCl64Y5gXwNxLDyjHHiGMqk2sv6EfxRncroAYVhonG/N63Fkd1BTOIWLNovgId/ehw/+ejh2LHi5Y7+whgPzVqaFfzmhXW/RSRMaAmxeAoLZWDUpeGx elmsep@elmsep.local"
+# }
