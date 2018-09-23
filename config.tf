@@ -1,18 +1,16 @@
-provider "docker" {
-  host = "tcp://docker:2345/"
+variable "access_key" {}
+variable "secret_key" {}
+variable "region" {
+  default = "us-east-1"
 }
-resource "docker_image" "nginx" {
-  name = "nginx:1.11-alpine"
+
+provider "aws" {
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
+  region     = "${var.region}"
 }
-resource "docker_container" "nginx-server" {
-  name = "nginx-server"
-  image = "${docker_image.nginx.latest}"
-  ports {
-    internal = 80
-  }
-  volumes {
-    container_path  = "/usr/share/nginx/html"
-    host_path = "/home/scrapbook/tutorial/www"
-    read_only = true
-  }
+
+resource "aws_instance" "nasa_nginx" {
+  ami           = "ami-0ac019f4fcb7cb7e6"
+  instance_type = "t2.micro"
 }
