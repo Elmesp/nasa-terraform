@@ -13,9 +13,9 @@ resource "aws_instance" "nasa_nginx" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      user     = "ec2-user"
+      user     = "ubuntu"
       private_key = "${file("/jenkins/terraform.pem")}"
-      agent = true
+      agent = false
     }
 
     inline = [
